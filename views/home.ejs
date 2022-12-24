@@ -1,0 +1,20 @@
+<%- include('partials/header'); -%>
+<h1>Home</h1>
+<p><%= homeContent%></p>
+
+
+<!-- using forEach loop to do -->
+<%posts.forEach((post)=>{ %>
+<%  let content = post.post    %>
+<%    if(content.length >= 100) { %>
+<%        content = content.substring(0, 100) + "..." %> 
+<%    } else {%>
+<%          content = content  + "..."  %>
+<%      } %>
+
+    <h1><%= post.title %></h1>
+    <p><%= content %> <a href='/posts/<%= post.title.toLowerCase() %>'> Read More</a></p>
+<%})%>
+
+
+<%- include('partials/footer'); -%>
